@@ -37606,7 +37606,9 @@ var staticRenderFns = [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h2", { staticClass: "card-header" }, [_vm._v("Welcome.")]),
+            _c("h2", { staticClass: "card-header" }, [
+              _vm._v("Welcome to earthbnb.")
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v("I'm an example component.")
@@ -37641,21 +37643,29 @@ var render = function() {
   return _c("div", [
     _c(
       "nav",
-      { staticClass: "navbar bg-white border-bottom navbar-light" },
+      { staticClass: "navbar navbar-light" },
       [
+        _c("img", {
+          attrs: {
+            src: __webpack_require__(/*! ../../icons/treehouse48.png */ "./resources/icons/treehouse48.png"),
+            alt: "",
+            srcset: ""
+          }
+        }),
+        _vm._v(" "),
         _c(
           "router-link",
           {
             staticClass: "navbar-brand mr-auto",
             attrs: { to: { name: "home" } }
           },
-          [_vm._v("Laravel BnB")]
+          [_vm._v("earthbnb")]
         ),
         _vm._v(" "),
         _c(
           "router-link",
           { staticClass: "btn nav-button", attrs: { to: { name: "second" } } },
-          [_vm._v("Second")]
+          [_vm._v("second")]
         )
       ],
       1
@@ -52914,6 +52924,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./resources/icons/treehouse48.png":
+/*!*****************************************!*\
+  !*** ./resources/icons/treehouse48.png ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/treehouse48.png?52f6ac06a88518315ab9d3f9fc25227f";
 
 /***/ }),
 

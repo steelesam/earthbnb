@@ -1,11 +1,12 @@
 <template>
     <div>
-        <nav class="navbar bg-white border-bottom navbar-light">
+        <nav class="navbar navbar-light">
+            <img src="../../icons/treehouse48.png" alt="" srcset="" />
             <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }"
-                >Laravel BnB</router-link
+                >earthbnb</router-link
             >
             <router-link class="btn nav-button" :to="{ name: 'second' }"
-                >Second</router-link
+                >second</router-link
             >
         </nav>
 
