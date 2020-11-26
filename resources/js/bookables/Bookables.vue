@@ -2,13 +2,17 @@
   <div>
     <div v-if="loading">Data is loading ...</div>
     <div v-else>
-      <div class="row" v-for="row in rows" :key="'row' + row">
+      <div class="row mb-4" v-for="row in rows" :key="'row' + row">
         <div
-          class="col mb-4"
+          class="col d-flex align-items-stretch"
           v-for="(bookable, column) in bookablesInRow(row)"
           :key="'row' + row + column"
         >
-          <BookableListItem :title="bookable.title" :content="bookable.content" :price="1000"></BookableListItem>
+          <BookableListItem
+            :title="bookable.title"
+            :description="bookable.description"
+            :price="1000"
+          ></BookableListItem>
         </div>
         <div class="col" v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p"></div>
       </div>
@@ -46,39 +50,23 @@ export default {
   },
   created() {
     this.loading = true;
-    setTimeout(() => {
-      this.bookables = [
-        {
-          title: "Villa 1",
-          content: "This villa is very cheap"
-        },
-        {
-          title: "Villa 2",
-          content: "Very expensive"
-        },
-        {
-          title: "Villa 3",
-          content: "Very expensive"
-        },
-        {
-          title: "Villa 4",
-          content: "Very expensive"
-        },
-        {
-          title: "Villa 5",
-          content: "Very expensive"
-        },
-        {
-          title: "Villa 6",
-          content: "Very expensive"
-        },
-        {
-          title: "Villa 7",
-          content: "Very expensive"
-        }
-      ];
+
+    const p = new Promise((resolve, reject) => {
+      console.log(resolve);
+      console.log(reject);
+      setTimeout(() => resolve("Hello"), 3000);
+    })
+      .then(result => "Hello again " + result)
+      .then(result => console.log(`Success ${result}`))
+      .catch(result => console.log(`Error ${result}`));
+
+    console.log(p);
+
+    const request = axios.get("/api/bookables").then(response => {
+      this.bookables = response.data;
+      this.bookables.push({ title: "x", description: "x" });
       this.loading = false;
-    }, 2000);
+    });
   }
 };
 </script>
